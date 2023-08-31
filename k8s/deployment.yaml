@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: 414852377253.dkr.ecr.us-west-2.amazonaws.com/demo-otel-operator/petclinic:1f3fd7a968dcb17d83734e368c1b70a2d60a028a
+          image: 414852377253.dkr.ecr.us-west-2.amazonaws.com/demo-otel-operator/petclinic:TAGGYDOOBER
           ports:
             - containerPort: 8080
