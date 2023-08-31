@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-deployment
+  labels:
+    app: petclinic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: petclinic
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+        - name: petclinic
+          image: 414852377253.dkr.ecr.us-west-2.amazonaws.com/demo-otel-operator/petclinic:1f3fd7a968dcb17d83734e368c1b70a2d60a028a
+          ports:
+            - containerPort: 8080
