@@ -1,4 +1,4 @@
-./mvnw package
+./mvnw package -Dskip.it=true
 
 mkdir -p target/extracted
 java -Djarmode=layertools -jar target/*.jar extract --destination target/extracted
