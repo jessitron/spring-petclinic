@@ -13,9 +13,17 @@ spec:
     metadata:
       labels:
         app: petclinic
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "true"
     spec:
       containers:
         - name: petclinic
           image: 414852377253.dkr.ecr.us-west-2.amazonaws.com/demo-otel-operator/petclinic:TAGGYDOOBER
           ports:
             - containerPort: 8080
+          env:
+            - name: HONEYCOMB_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: honeycomb-api-key
+                  key: api-key
