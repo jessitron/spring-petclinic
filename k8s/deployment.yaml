@@ -21,6 +21,19 @@ spec:
           image: 414852377253.dkr.ecr.us-west-2.amazonaws.com/demo-otel-operator/petclinic:TAGGYDOOBER
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 60
+            failureThreshold: 2
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 10
           env:
             - name: HONEYCOMB_API_KEY
               valueFrom:
