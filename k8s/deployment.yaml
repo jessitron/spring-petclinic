@@ -40,3 +40,5 @@ spec:
                 secretKeyRef:
                   name: honeycomb-api-key
                   key: api-key
+            - name: POSTGRES_URL
+              value: jdbc:postgresql://petclinic-postgres-postgresql/petclinic
